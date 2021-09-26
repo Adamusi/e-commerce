@@ -1,9 +1,11 @@
 package cn.itcast.springboot.controller;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.sql.DataSource;
 
 /**
  * @description：
@@ -14,15 +16,16 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@EnableAutoConfiguration
-public class HelloController {
+@RequestMapping("hello")
+public class HelloController
+{
+
+    @Autowired
+    private DataSource dataSource;
 
     @GetMapping("show")
-    public String test(){
+    public String test()
+    {
         return "hello Spring Boot!";
-    }
-
-    public static void main(String[] args) {
-        SpringApplication.run(HelloController.class, args);
     }
 }
