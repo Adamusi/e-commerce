@@ -82,6 +82,7 @@ public class User {
         this.salt = salt;
     }
 
+
     @Override
     public String toString()
     {
@@ -95,3 +96,4 @@ public class User {
                 '}';
     }
 }
+
